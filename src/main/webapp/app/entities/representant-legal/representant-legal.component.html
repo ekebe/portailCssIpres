@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="portailCssipresApp.representantLegal.home.title">Representant Legals</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-representant-legal" [routerLink]="['/representant-legal/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="portailCssipresApp.representantLegal.home.createLabel">
+            Create a new Representant Legal
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="representantLegals?.length === 0">
+        <span jhiTranslate="portailCssipresApp.representantLegal.home.notFound">No representantLegals found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="representantLegals?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="legalRepPerson"><span jhiTranslate="portailCssipresApp.representantLegal.legalRepPerson">Legal Rep Person</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastName"><span jhiTranslate="portailCssipresApp.representantLegal.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="portailCssipresApp.representantLegal.firstName">First Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="birthdate"><span jhiTranslate="portailCssipresApp.representantLegal.birthdate">Birthdate</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nationality"><span jhiTranslate="portailCssipresApp.representantLegal.nationality">Nationality</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nin"><span jhiTranslate="portailCssipresApp.representantLegal.nin">Nin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="placeOfBirth"><span jhiTranslate="portailCssipresApp.representantLegal.placeOfBirth">Place Of Birth</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cityOfBirth"><span jhiTranslate="portailCssipresApp.representantLegal.cityOfBirth">City Of Birth</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typeOfIdentity"><span jhiTranslate="portailCssipresApp.representantLegal.typeOfIdentity">Type Of Identity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="identityIdNumber"><span jhiTranslate="portailCssipresApp.representantLegal.identityIdNumber">Identity Id Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ninCedeo"><span jhiTranslate="portailCssipresApp.representantLegal.ninCedeo">Nin Cedeo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="issuedDate"><span jhiTranslate="portailCssipresApp.representantLegal.issuedDate">Issued Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="expiryDate"><span jhiTranslate="portailCssipresApp.representantLegal.expiryDate">Expiry Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="region"><span jhiTranslate="portailCssipresApp.representantLegal.region">Region</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="department"><span jhiTranslate="portailCssipresApp.representantLegal.department">Department</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="arondissement"><span jhiTranslate="portailCssipresApp.representantLegal.arondissement">Arondissement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commune"><span jhiTranslate="portailCssipresApp.representantLegal.commune">Commune</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="qartier"><span jhiTranslate="portailCssipresApp.representantLegal.qartier">Qartier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="address"><span jhiTranslate="portailCssipresApp.representantLegal.address">Address</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="landLineNumber"><span jhiTranslate="portailCssipresApp.representantLegal.landLineNumber">Land Line Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobileNumber"><span jhiTranslate="portailCssipresApp.representantLegal.mobileNumber">Mobile Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="portailCssipresApp.representantLegal.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let representantLegal of representantLegals ;trackBy: trackId">
+                    <td><a [routerLink]="['/representant-legal', representantLegal.id, 'view']">{{ representantLegal.id }}</a></td>
+                    <td>{{ representantLegal.legalRepPerson }}</td>
+                    <td>{{ representantLegal.lastName }}</td>
+                    <td>{{ representantLegal.firstName }}</td>
+                    <td>{{ representantLegal.birthdate | date:'mediumDate' }}</td>
+                    <td>{{ representantLegal.nationality }}</td>
+                    <td>{{ representantLegal.nin }}</td>
+                    <td>{{ representantLegal.placeOfBirth }}</td>
+                    <td>{{ representantLegal.cityOfBirth }}</td>
+                    <td>{{ representantLegal.typeOfIdentity }}</td>
+                    <td>{{ representantLegal.identityIdNumber }}</td>
+                    <td>{{ representantLegal.ninCedeo }}</td>
+                    <td>{{ representantLegal.issuedDate }}</td>
+                    <td>{{ representantLegal.expiryDate }}</td>
+                    <td>{{ representantLegal.region }}</td>
+                    <td>{{ representantLegal.department }}</td>
+                    <td>{{ representantLegal.arondissement }}</td>
+                    <td>{{ representantLegal.commune }}</td>
+                    <td>{{ representantLegal.qartier }}</td>
+                    <td>{{ representantLegal.address }}</td>
+                    <td>{{ representantLegal.landLineNumber }}</td>
+                    <td>{{ representantLegal.mobileNumber }}</td>
+                    <td>{{ representantLegal.email }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/representant-legal', representantLegal.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/representant-legal', representantLegal.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(representantLegal)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="representantLegals?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

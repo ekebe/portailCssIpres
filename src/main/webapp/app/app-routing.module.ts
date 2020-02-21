@@ -24,6 +24,23 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
         },
+        {
+          path: 'dec',
+          data: {
+            authorities: ['ROLE_USER']
+          },
+          canActivate: [UserRouteAccessService],
+          loadChildren: () => import('./declaration/declaration.module').then(m => m.DeclarationModule)
+        },
+        {
+          path: 'immat',
+          data: {
+            authorities: ['ROLE_USER']
+          },
+          canActivate: [UserRouteAccessService],
+          loadChildren: () => import('./immatriculation/immatriculation.module').then(m => m.ImmatriculationModule)
+        },
+
         ...LAYOUT_ROUTES
       ],
       { enableTracing: DEBUG_INFO_ENABLED }

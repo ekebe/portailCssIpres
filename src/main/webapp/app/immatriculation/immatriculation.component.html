@@ -1,0 +1,220 @@
+<div class="board-inner">
+    <wizard navBarLayout="large-empty-symbols" class="arc-wizard">
+        <wizard-step stepTitle="Information employeur" navigationSymbol="1" navigationSymbolFontFamily="FontAwesome">
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <form name="immatForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="immatForm">
+                        <h2 id="jhi-immatriculation-heading">Ajouter Information Employeur</h2>
+                        <div>
+                            <div class="form-group" [hidden]="!immatForm.get('id')!.value">
+                                <label for="id" jhiTranslate="global.field.id">ID</label>
+                                <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                                       readonly/>
+                            </div>
+
+                            <div class="form-group" hidden>
+                                <label class="form-control-label"
+                                       jhiTranslate="portailCssipresApp.immatriculation.regType" for="field_regType">Reg
+                                    Type</label>
+                                <input type="text" class="form-control" name="regType" id="field_regType"
+                                       formControlName="regType"/>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label"
+                                               jhiTranslate="portailCssipresApp.immatriculation.employerType"
+                                               for="field_employerType">Employer Type</label>
+                                        <select class="form-control" id="field_employerType" name="employerType"
+                                                formControlName="employerType">
+                                            <option [ngValue]="null"></option>
+                                            <option
+                                                [ngValue]="employeurOption.code === immatForm.get('employerType').value ? immatForm.get('employerType').value : employeurOption.code"
+                                                *ngFor="let employeurOption of employeurs;  ">{{  employeurOption.description }}</option>
+                                        </select>
+                                        <div
+                                            *ngIf="immatForm.get('employerType')!.invalid && (immatForm.get('employerType')!.dirty || immatForm.get('employerType')!.touched)">
+                                            <small class="form-text text-danger"
+                                                   *ngIf="immatForm.get('employerType')?.errors?.required"
+                                                   jhiTranslate="entity.validation.required">
+                                                This field is required.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label"
+                                               jhiTranslate="portailCssipresApp.immatriculation.typeEtablissement"
+                                               for="field_typeEtablissement">Type Etablissement</label>
+                                        <select class="form-control" id="field_typeEtablissement"
+                                                name="typeEtablissement" formControlName="typeEtablissement">
+                                            <option [ngValue]="null"></option>
+                                            <option
+                                                [ngValue]="etalissementOption.code === immatForm.get('typeEtablissement').value ? immatForm.get('typeEtablissement').value : etalissementOption.code"
+                                                *ngFor="let etalissementOption of etablissents;  ">{{  etalissementOption.description }}</option>
+                                        </select>
+                                        <div
+                                            *ngIf="immatForm.get('typeEtablissement')!.invalid && (immatForm.get('typeEtablissement')!.dirty || immatForm.get('typeEtablissement')!.touched)">
+                                            <small class="form-text text-danger"
+                                                   *ngIf="immatForm.get('typeEtablissement')?.errors?.required"
+                                                   jhiTranslate="entity.validation.required">
+                                                This field is required.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label"
+                                               jhiTranslate="portailCssipresApp.immatriculation.employerName"
+                                               for="field_employerName">Employer Name</label>
+                                        <input type="text" class="form-control" name="employerName"
+                                               id="field_employerName"
+                                               formControlName="employerName"/>
+                                        <div
+                                            *ngIf="immatForm.get('employerName')!.invalid && (immatForm.get('employerName')!.dirty || immatForm.get('employerName')!.touched)">
+                                            <small class="form-text text-danger"
+                                                   *ngIf="immatForm.get('employerName')?.errors?.required"
+                                                   jhiTranslate="entity.validation.required">
+                                                This field is required.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label"
+                                               jhiTranslate="portailCssipresApp.immatriculation.hqId"
+                                               for="field_hqId">Hq Id</label>
+                                        <input type="text" class="form-control" name="hqId" id="field_hqId"
+                                               formControlName="hqId"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"
+                                       jhiTranslate="portailCssipresApp.immatriculation.nineaNumber"
+                                       for="field_nineaNumber">Ninea Number</label>
+                                <input type="text" class="form-control" name="nineaNumber" id="field_nineaNumber"
+                                       formControlName="nineaNumber"/>
+                                <div
+                                    *ngIf="immatForm.get('nineaNumber')!.invalid && (immatForm.get('nineaNumber')!.dirty || immatForm.get('nineaNumber')!.touched)">
+                                    <small class="form-text text-danger"
+                                           *ngIf="immatForm.get('nineaNumber')?.errors?.required"
+                                           jhiTranslate="entity.validation.required">
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label"
+                                       jhiTranslate="portailCssipresApp.immatriculation.ninetNumber"
+                                       for="field_ninetNumber">Ninet Number</label>
+                                <input type="text" class="form-control" name="ninetNumber" id="field_ninetNumber"
+                                       formControlName="ninetNumber"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label"
+                                       jhiTranslate="portailCssipresApp.immatriculation.compagnyOriginId"
+                                       for="field_compagnyOriginId">Compagny Origin Id</label>
+                                <input type="text" class="form-control" name="compagnyOriginId"
+                                       id="field_compagnyOriginId"
+                                       formControlName="compagnyOriginId"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label"
+                                       jhiTranslate="portailCssipresApp.immatriculation.legalStatus"
+                                       for="field_legalStatus">Legal Status</label>
+                                <select class="form-control" id="field_legalStatus" name="legalStatus"
+                                        formControlName="legalStatus">
+                                    <option [ngValue]="null"></option>
+                                    <option
+                                        [ngValue]="statutOption.code === immatForm.get('legalStatus').value ? immatForm.get('legalStatus').value : statutOption.code"
+                                        *ngFor="let statutOption of statutJuridiques;  ">{{  statutOption.description }}</option>
+                                </select>
+                                <div
+                                    *ngIf="immatForm.get('legalStatus')!.invalid && (immatForm.get('legalStatus')!.dirty || immatForm.get('legalStatus')!.touched)">
+                                    <small class="form-text text-danger"
+                                           *ngIf="immatForm.get('legalStatus')?.errors?.required"
+                                           jhiTranslate="entity.validation.required">
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <button type="button" class="btn btn-primary" nextStep>Suivant</button>
+                            </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </wizard-step>
+        <wizard-step stepTitle="Decoupage geographique" navigationSymbol="2" navigationSymbolFontFamily="FontAwesome">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="centered-content"> Content of Step 2</h1>
+                    <div class="col-sm-12 centered-content">
+                        <button type="button" class="btn btn-primary" previousStep>Precedent</button>
+                        <button type="button" class="btn btn-primary" nextStep>Suivant</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </wizard-step>
+
+        <wizard-step stepTitle="Representant Legal" navigationSymbol="3" navigationSymbolFontFamily="FontAwesome">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="centered-content"> Content of Step 2</h1>
+                    <div class="col-sm-12 centered-content">
+                        <button type="button" class="btn btn-primary" previousStep>Precedent</button>
+                        <button type="button" class="btn btn-primary" nextStep>Suivant</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </wizard-step>
+
+        <wizard-step stepTitle="information salariés" navigationSymbol="4" navigationSymbolFontFamily="FontAwesome">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="centered-content"> Content of Step 2</h1>
+                    <div class="col-sm-12 centered-content">
+                        <button type="button" class="btn btn-primary" previousStep>Precedent</button>
+                        <button type="button" class="btn btn-primary" nextStep>Suivant</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </wizard-step>
+
+        <wizard-step stepTitle="Recapitulatif" navigationSymbol="5" navigationSymbolFontFamily="FontAwesome">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="centered-content">Content of Step 3</h1>
+                    <div class="col-sm-12 centered-content">
+                        <button type="button" class="btn btn-primary" previousStep>Precedent</button>
+                        <button type="button" class="btn btn-primary" (click)="finishFunction()">Finish</button>
+                    </div>
+                </div>
+            </div>
+
+        </wizard-step>
+    </wizard>
+</div>

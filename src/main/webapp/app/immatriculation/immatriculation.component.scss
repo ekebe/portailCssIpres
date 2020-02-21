@@ -1,0 +1,44 @@
+.arc-wizard .centered-content {
+  text-align: center;
+}
+
+.arc-wizard .wizard-steps {
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  padding: 20px;
+}
+
+.arc-wizard ul.steps-indicator li:after {
+  font-weight: 900;
+}
+
+.arc-wizard .small ul.steps-indicator li.current:after,
+.arc-wizard .small ul.steps-indicator li.editing:after {
+  background-color: #04a9f5 !important;
+}
+
+.arc-wizard .large-filled-symbols ul.steps-indicator li.current:after,
+.arc-wizard .large-filled-symbols ul.steps-indicator li.editing:after {
+  background-color: #04a9f5 !important;
+  color: #fff !important;
+}
+
+.arc-wizard .large-filled-symbols ul.steps-indicator li.done:after {
+  color: #fff !important;
+}
+
+.arc-wizard .large-empty-symbols ul.steps-indicator li.current:after,
+.arc-wizard .large-empty-symbols ul.steps-indicator li.editing:after {
+  border-color: #04a9f5 !important;
+  color: #04a9f5 !important;
+  font-size: x-large;
+}
+
+.arc-wizard wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li .step-indicator {
+  color: #fff;
+  font-size: 30px;
+}
+
+.arc-wizard wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li .step-indicator {
+  font-size: 30px;
+}

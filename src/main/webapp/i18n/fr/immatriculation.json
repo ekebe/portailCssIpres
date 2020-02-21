@@ -1,0 +1,68 @@
+{
+  "portailCssipresApp": {
+    "immatriculation": {
+      "home": {
+        "title": "Immatriculations",
+        "new": " Nouvelle Immatriculations",
+        "createLabel": "Créer un nouveau Immatriculation",
+        "createOrEditLabel": "Créer ou éditer un Immatriculation",
+        "notFound": "Aucun Immatriculation trouvé"
+      },
+      "created": "Un nouveau Immatriculation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Immatriculation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Immatriculation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer l'immatriculation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Immatriculation"
+      },
+      "regType": "Type de Formulaire",
+      "employerType": "Type Employeur",
+      "typeEtablissement": "Type Etablissement",
+      "employerName": "Raison Sociale",
+      "hqId": "Maison mére ",
+      "nineaNumber": "Ninea",
+      "ninetNumber": "Ninet ",
+      "compagnyOriginId": "Origin Employeur",
+      "legalStatus": "Statut Juridique",
+      "taxId": "Tax Id",
+      "taxIdDate": "Tax Id Date",
+      "tradeRegisterNumber": "Numéro de registre de commerce",
+      "tradeRegisterDate": "Date enregistrement du registre de commerce",
+      "dateOfInpsection": "Date d'inspection",
+      "dateOfFirtHire": "Date d'embauche du premier salarié",
+      "shortName": "Sigle",
+      "businessSector": "Secteur d'activité",
+      "mainLineOfBusiness": "Activité principale",
+      "noOfWorkersInGenScheme": "Nombre de travailleur au régime général",
+      "noOfWorkersInBasicScheme": "Nombre de travailleur au régime cadre",
+      "region": "Région",
+      "department": "Départment",
+      "arondissement": "Arrondissement",
+      "commune": "Commune",
+      "qartier": "Quartier",
+      "address": "Complémént d'adresse",
+      "postboxNo": "Boite postale",
+      "telephone": "Téléphone",
+      "email": "Email",
+      "website": "Site web",
+      "zoneCss": "Zone Css",
+      "zoneIpres": "Zone Ipres",
+      "sectorCss": "Secteur Css",
+      "sectorIpres": "Secteur Ipres",
+      "agencyCss": "Agence Css",
+      "agencyIpres": "Agence Ipres",
+      "employerRegistrationFormId": "Id formulaire employeur",
+      "employeeRegistrationFormId": "Id du formulaire des salariés",
+      "processFlowId": "Numéro du dossier",
+      "statutDossier": "Statut Dossier",
+      "statutImmatriculation": "Statut Immatriculation",
+      "representantLegal": "Représentant Légal",
+      "user": "User",
+      "declaration": "Déclaration",
+      "employe": "Employé",
+      "document": "Document"
+    }
+  }
+}
