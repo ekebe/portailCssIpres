@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.secusociale.portail.domain.Immatriculation;
-import com.secusociale.portail.service.ImmatPortailService;
+import com.secusociale.portail.service.immatriculation.ImmatPortailService;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
 import com.secusociale.portail.web.rest.ImmatriculationResource;

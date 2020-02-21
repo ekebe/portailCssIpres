@@ -1,4 +1,4 @@
-package com.secusociale.portail.service;
+package com.secusociale.portail.service.immatriculation;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -8,6 +8,7 @@ import javax.xml.ws.Holder;
 
 import org.springframework.stereotype.Service;
 
+import com.secusociale.portail.service.PortailConstant;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculation;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculation.Input;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculationFault;

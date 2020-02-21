@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.secusociale.portail.service.CertificatImmatriculationService;
+import com.secusociale.portail.service.immatriculation.CertificatImmatriculationService;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculation;
 import com.secusociale.portail.service.soap.certificatImmatriculation.CmGetCertificatImmatriculationFault;
 import com.secusociale.portail.service.soap.demandeAttestationReguralite.CmGetAttestationRegulariteFault;

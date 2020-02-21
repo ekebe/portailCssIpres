@@ -1,4 +1,4 @@
-package com.secusociale.portail.service;
+package com.secusociale.portail.service.immatriculation;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.secusociale.portail.domain.Employe;
 import com.secusociale.portail.domain.Immatriculation;
+import com.secusociale.portail.service.PortailConstant;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUND;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDFault;
 import com.secusociale.portail.service.soap.demandeImmatriculation.IMMATRICULATIONINBOUNDPortType;
